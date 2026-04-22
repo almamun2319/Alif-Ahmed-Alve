@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আলিফ আহমেদ আল্ভী - ফটো ও ভিডিও গ্যালারি</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="আলিফ আহমেদ আল্ভীর সুন্দর ফটো ও ভিডিও গ্যালারি। আধুনিক ডিজাইন এবং সহজ নেভিগেশন সহ।">
+    <meta name="keywords" content="গ্যালারি, ছবি, ভিডিও, পোর্টফোলিও">
+    <meta name="author" content="আলিফ আহমেদ আল্ভী">
+    
+    <!-- Open Graph (Facebook, WhatsApp) -->
+    <meta property="og:title" content="আলিফ আহমেদ আল্ভী - ফটো ও ভিডিও গ্যালারি">
+    <meta property="og:description" content="আমার সুন্দর ছবি এবং ভিডিওগুলি দেখুন">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Gallery">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="আলিফ আহমেদ আল্ভী - গ্যালারি">
+    <meta name="twitter:description" content="আমার সুন্দর ছবি এবং ভিডিওগুলি দেখুন">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%23667eea'>📸</text></svg>">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div>
+                    <h1 class="title">আলিফ আহমেদ আল্ভী</h1>
+                    <p class="subtitle">ফটো ও ভিডিও গ্যালারি</p>
+                </div>
+                <div class="header-actions">
+                    <button id="themeToggle" class="theme-toggle" title="থিম পরিবর্তন">🌙</button>
+                    <a href="admin.html" class="admin-link" title="এডমিন প্যানেল">🔐</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- About / Personal Info -->
+        <section class="about-section">
+            <div class="about-card">
+                <div class="profile-top">
+                    <img id="profileImage" class="profile-avatar" src="https://via.placeholder.com/260?text=Profile+Picture" alt="প্রোফাইল ছবি">
+                    <div class="about-text">
+                        <h2 id="profileTitle">আমার সম্পর্কে</h2>
+                        <p id="profileDescription">এই সাইটটি আমার ব্যক্তিগত ছবি, ভিডিও এবং সংক্ষিপ্ত পরিচিতি দেখানোর জন্য তৈরি করা হয়েছে। এখানে আমি আমার কাজ, আগ্রহ এবং যোগাযোগের তথ্য শেয়ার করব।</p>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h3>নাম</h3>
+                        <p id="profileName">আলিফ আহমেদ আল্ভী</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>পেশা</h3>
+                        <p id="profileProfession">ওয়েব ডেভেলপার / ডিজাইনার</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>ইমেইল</h3>
+                        <p id="profileEmail">example@email.com</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>অবস্থান</h3>
+                        <p id="profileLocation">বাংলাদেশ</p>
+                    </div>
+                </div>
+                <p class="about-note">নোট: ছবি ও ভিডিও আপলোড করতে <a href="admin.html">এডমিন প্যানেল</a> ব্যবহার করুন।</p>
+            </div>
+        </section>
+
+        <!-- Filter Buttons -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">সব</button>
+            <button class="filter-btn" data-filter="photo">ছবি</button>
+            <button class="filter-btn" data-filter="video">ভিডিও</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="gallery">
+            <!-- Items will be loaded here -->
+        </div>
+
+        <!-- Modal -->
+        <div class="modal" id="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modalImg">
+            <iframe class="modal-video" id="modalVideo"></iframe>
+            <div class="modal-caption" id="modalCaption"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

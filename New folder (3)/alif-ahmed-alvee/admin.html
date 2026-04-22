@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>এডমিন প্যানেল - আলিফ আহমেদ আল্ভী</title>
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <h1>🔐 এডমিন প্যানেল</h1>
+            <p>আপনার গ্যালারি পরিচালনা করুন</p>
+            <p class="login-note">প্রথমবার লগইন করতে ডিফল্ট পাসওয়ার্ড ব্যবহার করুন: <strong>12345678</strong></p>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="password">পাসওয়ার্ড</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        placeholder="পাসওয়ার্ড লিখুন"
+                        required
+                    >
+                </div>
+                <button type="submit" class="btn btn-primary">লগইন করুন</button>
+            </form>
+
+            <div id="loginError" class="error-message" style="display: none;"></div>
+
+            <div class="login-footer">
+                <p>❓ পাসওয়ার্ড ভুলে গেছেন? <a href="index.html">হোমে ফিরুন</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+        <header class="admin-header">
+            <div class="header-content">
+                <h1>🎨 গ্যালারি ম্যানেজার</h1>
+                <button id="logoutBtn" class="btn btn-danger">লগআউট</button>
+            </div>
+        </header>
+
+        <div class="admin-container">
+            <!-- Add New Item -->
+            <section class="add-item-section">
+                <h2>➕ নতুন ছবি বা ভিডিও যোগ করুন</h2>
+                
+                <form id="addItemForm" class="add-item-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemType">ধরন</label>
+                            <select id="itemType" required>
+                                <option value="photo">ছবি</option>
+                                <option value="video">ভিডিও</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="itemCaption">বর্ণনা</label>
+                            <input 
+                                type="text" 
+                                id="itemCaption" 
+                                placeholder="ছবি বা ভিডিওর নাম"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemSrc">লিঙ্ক (URL)</label>
+                        <input 
+                            type="url" 
+                            id="itemSrc" 
+                            placeholder="https://example.com/image.jpg"
+                            required
+                        >
+                        <small>ছবি বা YouTube ভিডিওর সম্পূর্ণ লিঙ্ক প্রদান করুন</small>
+                    </div>
+
+                    <div id="videoThumbnailGroup" class="form-group" style="display: none;">
+                        <label for="itemThumbnail">ভিডিও থাম্বনেইল (YouTube এর জন্য)</label>
+                        <input 
+                            type="url" 
+                            id="itemThumbnail" 
+                            placeholder="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg"
+                        >
+                        <small>YouTube ভিডিওর জন্য থাম্বনেইল URL</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">যোগ করুন</button>
+                </form>
+
+                <div id="addItemSuccess" class="success-message" style="display: none;"></div>
+                <div id="addItemError" class="error-message" style="display: none;"></div>
+            </section>
+
+            <!-- Profile Settings -->
+            <section class="profile-section">
+                <h2>👤 প্রোফাইল সেটিংস</h2>
+                <form id="profileForm" class="profile-form">
+                    <div class="form-group">
+                        <label for="profileImageUrl">প্রোফাইল ছবি URL</label>
+                        <input type="url" id="profileImageUrl" placeholder="https://example.com/profile.jpg" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profileNameInput">নাম</label>
+                            <input type="text" id="profileNameInput" placeholder="আপনার নাম" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profileProfessionInput">পেশা</label>
+                            <input type="text" id="profileProfessionInput" placeholder="পেশা লিখুন" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profileEmailInput">ইমেইল</label>
+                            <input type="email" id="profileEmailInput" placeholder="email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profileLocationInput">অবস্থান</label>
+                            <input type="text" id="profileLocationInput" placeholder="দেশ/শহর" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileDescriptionInput">বর্ণনা</label>
+                        <textarea id="profileDescriptionInput" rows="4" placeholder="ছোট একটি পরিচিতি লিখুন" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">প্রোফাইল আপডেট করুন</button>
+                </form>
+                <div id="profileSaveSuccess" class="success-message" style="display: none;"></div>
+                <div id="profileSaveError" class="error-message" style="display: none;"></div>
+            </section>
+
+            <section class="password-section">
+                <h2>🔒 পাসওয়ার্ড পরিবর্তন</h2>
+                <form id="passwordForm" class="password-form">
+                    <div class="form-group">
+                        <label for="currentPassword">বর্তমান পাসওয়ার্ড</label>
+                        <input type="password" id="currentPassword" placeholder="বর্তমান পাসওয়ার্ড" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">নতুন পাসওয়ার্ড</label>
+                        <input type="password" id="newPassword" placeholder="নতুন পাসওয়ার্ড" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">নতুন পাসওয়ার্ড নিশ্চিত করুন</label>
+                        <input type="password" id="confirmPassword" placeholder="পাসওয়ার্ড আবার লিখুন" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">পাসওয়ার্ড আপডেট করুন</button>
+                </form>
+                <div id="passwordSuccess" class="success-message" style="display: none;"></div>
+                <div id="passwordError" class="error-message" style="display: none;"></div>
+            </section>
+
+            <!-- Items List -->
+            <section class="items-section">
+                <h2>📋 আপনার গ্যালারি আইটেম</h2>
+
+                <div class="items-filter">
+                    <button class="filter-btn active" data-filter="all">সব (আইটেম)</button>
+                    <button class="filter-btn" data-filter="photo">ছবি</button>
+                    <button class="filter-btn" data-filter="video">ভিডিও</button>
+                </div>
+
+                <div id="itemsList" class="items-list"></div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Item Edit Modal -->
+    <div id="editModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>✏️ আইটেম সম্পাদনা করুন</h2>
+
+            <form id="editItemForm" class="edit-item-form">
+                <div class="form-group">
+                    <label for="editCaption">বর্ণনা</label>
+                    <input type="text" id="editCaption" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editSrc">লিঙ্ক</label>
+                    <input type="url" id="editSrc" required>
+                </div>
+
+                <div id="editThumbnailGroup" class="form-group" style="display: none;">
+                    <label for="editThumbnail">থাম্বনেইল</label>
+                    <input type="url" id="editThumbnail">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">আপডেট</button>
+                    <button type="button" class="btn btn-secondary" id="cancelEditBtn">বাতিল</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>
